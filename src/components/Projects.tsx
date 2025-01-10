@@ -9,10 +9,19 @@ interface Project {
   technologies: string[];
   liveUrl?: string;
   githubUrl: string;
-  category: string;
+  category: Array<string>;
 }
 
 const projects: Project[] = [
+  {
+    title: "CulinarySwap",
+    description: "An app for passionate cooks to share their culinary skills other chefs and food enthusiasts",
+    image: "/images/culinaryswap.png",
+    technologies: ["React", "Tailwind CSS"],
+    liveUrl: "https://culinaryswap.netlify.app",
+    githubUrl: "https://github.com/Tumelo2748/CulinarySwap",
+    category: ["Fullstack", "web"]
+  },
   {
     title: "ReapplyMe",
     description: "A full-stack Job Application Platform with AI features",
@@ -20,15 +29,23 @@ const projects: Project[] = [
     technologies: ["React.js", "TypeScript", "Tailwind CSS", "Supabase", "Python"],
     liveUrl: "https://reapplyme.netlify.app",
     githubUrl: "https://github.com",
-    category: "Full Stack"
+    category: ["Fullstack", "AI/ML"]
   },
   {
-    title: "AI-Powered Task Manager",
-    description: "Smart task management app with AI-driven priority suggestions and time estimates.",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["React", "Python", "TensorFlow", "FastAPI"],
+    title: "Remark",
+    description: "A modern web application that helps teachers automatically mark examination scripts using AI technology.",
+    image: "images/remark.png",
+    technologies: ["React", "Typescript", "Python", "Tailwind CSS" , "OpenAI", "FastAPI", "Supabase"],
     githubUrl: "https://github.com",
-    category: "AI/ML"
+    category: ["Fullstack", "AI/ML"]
+  },
+  {
+    title: "Music Producer Website",
+    description: "A modern music producer webiste built for selling Sample packs, beats, and music promotion",
+    image: "images/spix.png",
+    technologies: ["React", "Typescript", "Tailwind CSS" , "Supabase", "Threejs"],
+    githubUrl: "https://github.com",
+    category: ["Fullstack", "web"]
   },
 ];
 
@@ -58,9 +75,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold text-white">{project.title}</h3>
-          <span className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
-            {project.category}
-          </span>
+          <div className="flex gap-2">
+            {project.category.map((cat, index) => (
+              <span 
+                key={index}
+                className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30"
+              >
+                {cat}
+              </span>
+            ))}
+          </div>
         </div>
 
         <p className="text-gray-300 text-sm mb-4">{project.description}</p>
@@ -116,9 +140,9 @@ const Projects = () => {
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = Array.from(new Set(projects.map(project => project.category)));
+  const categories = Array.from(new Set(projects.flatMap(project => project.category)));
   const filteredProjects = selectedCategory
-    ? projects.filter(project => project.category === selectedCategory)
+    ? projects.filter(project => project.category.includes(selectedCategory))
     : projects;
 
   return (
@@ -189,7 +213,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Tumelo2748"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300"

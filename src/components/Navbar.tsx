@@ -32,7 +32,7 @@ const Navbar = () => {
     { name: 'Home', to: 'hero', icon: 'fas fa-home' },
     { name: 'Skills', to: 'skills', icon: 'fas fa-code' },
     { name: 'Projects', to: 'projects', icon: 'fas fa-laptop-code' },
-    { name: 'Experience', to: 'experience', icon: 'fas fa-briefcase' },
+    { name: 'Experience', to: 'education', icon: 'fas fa-briefcase' },
     { name: 'Contact', to: 'contact', icon: 'fas fa-envelope' },
   ];
 
@@ -42,16 +42,13 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 py-4"
       >
         <div className={`absolute inset-0 ${
           isScrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
         } transition-all duration-300`} />
-
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`flex justify-between items-center transition-all duration-300 ${
-            isScrolled ? 'h-16' : 'h-20'
-          }`}>
+          <nav className="flex justify-between items-center transition-all duration-300 h-20 md:h-16">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -76,12 +73,12 @@ const Navbar = () => {
                   offset={-64}
                   duration={500}
                   onSetActive={() => setActiveSection(item.to)}
-                  className="relative px-4 py-2 group"
+                  className="relative px-4 py-2 group cursor-pointer"
                 >
-                  <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
+                  <div className={`absolute inset-0 rounded-lg transition-all duration-300  ${
                     activeSection === item.to
                       ? 'bg-blue-500/20'
-                      : 'group-hover:bg-white/10'
+                      : 'group-hover:bg-white/10 '
                   }`} />
                   <div className="relative flex items-center space-x-2">
                     <i className={`${item.icon} text-sm ${
@@ -115,7 +112,7 @@ const Navbar = () => {
             >
               <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-lg`} />
             </motion.button>
-          </div>
+          </nav>
         </div>
       </motion.nav>
 

@@ -15,7 +15,7 @@ interface Education {
 const educationData: Education[] = [
   {
     school: "University of Johannesburg",
-    degree: "Fullstack Engineering",
+    degree: "Business Information technology",
     field: "Bootcamp",
     duration: "2020 - 2023",
     location: "Johannesburg, South Africa",
@@ -25,9 +25,8 @@ const educationData: Education[] = [
       "Final year project Project Leader"
     ],
     achievements: [
-      "Dean's List: All Semesters",
-      "Best Senior Project Award",
-      "3.9 GPA"
+      "Project leader",
+      "Built fullstack mobile app (IOT)"
     ],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FYYbKAlNjpB1lpbMSBBheXBpOApV9V7jjw&s"
   },
@@ -92,7 +91,7 @@ const EducationSection = () => {
         className="text-center mb-16"
       >
         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-          Educational Journey
+          Dev Journey
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
       </motion.div>

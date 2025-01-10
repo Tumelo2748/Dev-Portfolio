@@ -23,6 +23,7 @@ interface Project {
   featured: boolean;
   startDate: string;
   endDate?: string;
+  galleryImages?: string[];
 }
 
 interface Experience {
@@ -118,14 +119,18 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform with modern features",
-    longDescription: `Built a complete e-commerce solution with features including user authentication, 
-                     product management, shopping cart, and payment integration.`,
+    title: "ReapplyMe",
+    description: "A full-stack job application platform with Personalized Emails and AI features",
+    longDescription: `Built a complete modern web application designed to streamline the job application process by providing intelligent tools for managing job applications, generating personalized emails, and tracking career progress.`,
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com/yourusername/project1",
-    liveUrl: "https://project1.com",
+    githubUrl: "https://github.com/Tumelo2748/ReapplyMe",
+    liveUrl: "https://reapplyme.netlify.app",
     imageUrl: "/projects/ecommerce.jpg",
+    galleryImages: [
+      "/projects/reapplyme-dashboard.png",
+      "/projects/reapplyme-email.png",
+      "/projects/reapplyme-analytics.png"
+    ],
     featured: true,
     startDate: "2023-01",
     endDate: "2023-06"
